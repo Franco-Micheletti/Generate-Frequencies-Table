@@ -64,7 +64,7 @@ def absolute_frequency(parameter1,parameter2):
 
     if column == 2 and row <= n_intervals_round:
         
-        #Crear diccionario de frequency absolutas una vez
+        #Create diccionary of absolute frequencies once
         if create_diccionary == True:
             for x in data:
                 frecuencia_absoluta = data.count(x)
@@ -72,10 +72,10 @@ def absolute_frequency(parameter1,parameter2):
             create_diccionary = False
             
 
-        #frequency absolutas por intervalo
+        #Absolute frequency per intervals
         for x in frequency:
             
-            #Si no es la ultima row
+            #If it's not the last row : 
             if row != (len(table)-2):
                 if x >= parameter1 and x < parameter2:
                     sum_fi = sum_fi + frequency[x]
@@ -84,7 +84,7 @@ def absolute_frequency(parameter1,parameter2):
                     total_fi.append(sum_fi)
                     table[row][2] = sum_fi
                     sum_fi = 0
-            #Cuando trabajamos con la ultima row
+            #If it is the last row do :
             elif x >= parameter1 and x <= parameter2:
                 sum_fi = sum_fi + frequency[x]
             
@@ -93,7 +93,7 @@ def absolute_frequency(parameter1,parameter2):
                     table[row][2] = sum_fi
                     sum_fi = 0
     
-    #Total de las frequency absolutas
+    #Total of absolute frequencies
     if row == n_intervals_round :
         table[row+1][2] = str(color.GREEN + str(sum(total_fi)) + color.ENDC)
 #----------------------------------------------------CUMULATIVE ABSOLUTE FREQUENCY ( Fi )-------------------------------
@@ -154,9 +154,11 @@ def main():
     global row
     global total_xi_fi
     global total_fr
-
+    
+    # Change this if you want to try another set of values
     data = [15,15,25,25,27,27,27,30,30,30,30,30,30,30,30,30,35,35,36,
             36,37,37,37,40,40,40,40,40,40,45,45,45,46,46]
+    
     data = sorted(data)
     mean_1      = mean(data)
     mode_1      = mode(data)
